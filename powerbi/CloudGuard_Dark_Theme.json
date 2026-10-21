@@ -1,0 +1,54 @@
+{
+  "name": "CloudGuard SOC Dark",
+  "dataColors": ["#60A5FA", "#818CF8", "#22C55E", "#F59E0B", "#EF4444", "#38BDF8", "#A78BFA", "#64748B"],
+  "background": "#0B1220",
+  "foreground": "#E5EEFC",
+  "tableAccent": "#3B82F6",
+  "visualStyles": {
+    "*": {
+      "*": {
+        "title": [
+          {
+            "show": true,
+            "fontColor": { "solid": { "color": "#E5EEFC" } },
+            "fontSize": 12,
+            "fontFamily": "Segoe UI Semibold"
+          }
+        ],
+        "background": [
+          { "show": true, "color": { "solid": { "color": "#111827" } }, "transparency": 0 }
+        ],
+        "border": [
+          { "show": true, "color": { "solid": { "color": "#263244" } }, "radius": 6 }
+        ],
+        "labels": [
+          { "color": { "solid": { "color": "#A9B8CD" } }, "fontSize": 10 }
+        ],
+        "legend": [
+          {
+            "labelColor": { "solid": { "color": "#A9B8CD" } },
+            "titleColor": { "solid": { "color": "#E5EEFC" } }
+          }
+        ]
+      }
+    },
+    "card": {
+      "*": {
+        "calloutValue": [
+          { "color": { "solid": { "color": "#F1F5FB" } }, "fontSize": 28 }
+        ],
+        "categoryLabels": [
+          { "color": { "solid": { "color": "#8DA0BA" } } }
+        ]
+      }
+    },
+    "slicer": {
+      "*": {
+        "items": [
+          { "fontColor": { "solid": { "color": "#D6E1F1" } } }
+        ]
+      }
+    }
+  }
+}
+

@@ -1,0 +1,66 @@
+-- CloudGuard SOC measures. Table and column names match data/processed CSVs exactly.
+Total Events = COUNTROWS(SecurityEvents)
+
+Total Incidents = DISTINCTCOUNT(Incidents[IncidentID])
+
+Critical Incidents =
+CALCULATE([Total Incidents], Incidents[Severity] = "Critical")
+
+High Incidents =
+CALCULATE([Total Incidents], Incidents[Severity] = "High")
+
+Critical + High Incidents = [Critical Incidents] + [High Incidents]
+
+Open Incidents =
+CALCULATE([Total Incidents], Incidents[Status] = "Open")
+
+Investigating Incidents =
+CALCULATE([Total Incidents], Incidents[Status] = "Investigating")
+
+Resolved Incidents =
+CALCULATE([Total Incidents], Incidents[Status] = "Resolved")
+
+Resolution Rate = DIVIDE([Resolved Incidents], [Total Incidents], 0)
+
+Suspicious Events =
+CALCULATE([Total Events], SecurityEvents[IsAnomaly] = TRUE())
+
+Anomaly Rate = DIVIDE([Suspicious Events], [Total Events], 0)
+
+Average Event Risk Score = AVERAGE(SecurityEvents[RiskScore])
+
+Average Incident Risk Score = AVERAGE(Incidents[RiskScore])
+
+Average Response Minutes = AVERAGE(Incidents[ResponseMinutes])
+
+Median Response Minutes = MEDIAN(Incidents[ResponseMinutes])
+
+Average Resolution Minutes = AVERAGE(Incidents[ResolutionMinutes])
+
+Median Resolution Minutes = MEDIAN(Incidents[ResolutionMinutes])
+
+SLA Met Incidents =
+CALCULATE([Total Incidents], Incidents[SLAStatus] = "Met")
+
+SLA Met Rate = DIVIDE([SLA Met Incidents], [Total Incidents], 0)
+
+Large Transfer Events =
+CALCULATE([Total Events], SecurityEvents[LargeNetworkTransfer] = TRUE())
+
+Repeated Login Failure Events =
+CALCULATE([Total Events], SecurityEvents[RepeatedLoginFailures] = TRUE())
+
+Privileged Actions =
+CALCULATE([Total Events], SecurityEvents[PrivilegedAction] = TRUE())
+
+-- Evaluation is valid only for intentionally labeled synthetic scenarios.
+Labeled Attack Events =
+CALCULATE([Total Events], SecurityEvents[GroundTruthAttack] = TRUE())
+
+Detected Labeled Attack Events =
+CALCULATE([Total Events], SecurityEvents[GroundTruthAttack] = TRUE(), SecurityEvents[IsAnomaly] = TRUE())
+
+Detection Precision = DIVIDE([Detected Labeled Attack Events], [Suspicious Events], 0)
+
+Detection Recall = DIVIDE([Detected Labeled Attack Events], [Labeled Attack Events], 0)
+
