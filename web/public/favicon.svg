@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="CloudGuard SOC">
+  <rect width="64" height="64" rx="14" fill="#071827"/>
+  <path d="M10 40c0-7 5-12 12-12 2-8 8-13 16-13 8 0 15 5 16 13 6 0 10 5 10 12s-5 12-11 12H21c-6 0-11-5-11-12Z" fill="none" stroke="#f8fafc" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"/>
+  <path d="m37 22-9 4v8c0 7 3 12 9 16 6-4 9-9 9-16v-8l-9-4Z" fill="#f8fafc"/>
+  <path d="M37 22v28c6-4 9-9 9-16v-8l-9-4Z" fill="#ff6500"/>
+</svg>

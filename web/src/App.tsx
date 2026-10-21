@@ -52,7 +52,7 @@ export default function App() {
       case "incidents": return <IncidentPage data={data} incidents={visibleIncidents} search={incidentSearch} setSearch={setIncidentSearch} />;
       case "threats": return <ThreatPage events={visibleEvents} />;
       case "identity": return <IdentityPage data={data} events={visibleEvents} />;
-      case "assets": return <AssetPage data={data} incidents={visibleIncidents} events={visibleEvents} />;
+      case "assets": return <AssetPage data={data} incidents={visibleIncidents} events={visibleEvents} filters={filters} />;
       case "response": return <ResponsePage incidents={visibleIncidents} events={visibleEvents} />;
     }
   })();
