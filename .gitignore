@@ -1,6 +1,6 @@
 # Generated data can be recreated using the R scripts
-data/raw/
-data/processed/
+#data/raw/
+#data/processed/
 
 # Power BI temporary/backup files
 *.pbix.autorecover
